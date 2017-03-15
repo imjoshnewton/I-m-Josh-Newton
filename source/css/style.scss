@@ -10,9 +10,9 @@
 // CodeKit
 //@import "bourbon", "bitters/base";
 // Manual
-@import "bourbon/bourbon";
-@import "base/base";
-@import "neat/neat";
+@import 'bourbon/bourbon';
+@import 'base/base';
+@import 'neat/neat';
 
 $base-font-family: 'Montserrat', sans-serif;
 $heading-font-family: 'Amiko', sans-serif;
@@ -23,35 +23,41 @@ $small-font: 1em;
 $large-icons: 3em;
 $medium-icons: 2.5em;
 
+$white80: rgba(100%, 100%, 100%, .8);
+$white90: rgba(100%, 100%, 100%, .9);
+$grey60: rgba(20%, 20%, 20%, .6);
+$darkgrey70: rgba(5%, 5%, 5%, .7);
+$antiquewhite: #f2ebea;
+$darkgrey: #333;
+
 //white for right triangle
-$neutral-white-background: rgba(100%, 100%, 100%, 0.8), rgba(100%, 100%, 100%, 0.9);
-$neutral-grey-background: rgba(20%, 20%, 20%, 0.6), rgba(5%, 5%, 5%, 0.7);
+$neutral-white-background: $white80, $white90;
+$neutral-grey-background: $grey60, $darkgrey70;
 //shapes
 $triangle: polygon(0 0, 0 100%, 100% 0);//polygon(0 100%, 0 0, 100% 0, 80% 100%); //polygon(100% 0, 0% 100%, 100% 100%);
 $rect: polygon(0 100%, 100% 0, 100% 100%); //(0 0, 0 100%, 100% 100%, 100% 0);
 
 body {
-	padding: 0;
-	margin: 0;
-	//font-family: 'Roboto', sans-serif;
-	font-family: $base-font-family; //'Amiko', sans-serif;
-	color: #f2ebea;
+  color: $antiquewhite;
+  font-family: $base-font-family; //'Amiko', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-	text-decoration: none !important;
+  text-decoration: none;
 
-	&:active {
-		opacity: 0.5;
-	}
+  &:active {
+    opacity: .5;
+  }
 
-	&:visited {
-		color: #333;
-	}
+  &:visited {
+    color: $darkgrey;
+  }
 }
 
 h1 {
-	font-size: $large-font;
+  font-size: $large-font;
 }
 
 h1,
