@@ -23,7 +23,9 @@ $small-font: 1em;
 $large-icons: 3em;
 $medium-icons: 2.5em;
 
+$white: #fff;
 $white80: rgba(100%, 100%, 100%, .8);
+$white85: rgba(255, 255, 255, .85);
 $white90: rgba(100%, 100%, 100%, .9);
 $grey60: rgba(20%, 20%, 20%, .6);
 $darkgrey70: rgba(5%, 5%, 5%, .7);
@@ -66,107 +68,106 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $heading-font-family;
-	margin-top: .33em;
+  font-family: $heading-font-family;
+  margin-top: .33em;
 }
 
 h4 {
-	margin-bottom: .75em;
+  margin-bottom: .75em;
 }
 
 p,
 ul {
-	//font-family: 'Merriweather', serif;
-	font-family: $base-font-family;
-	font-size: $small-font;
-	font-weight: normal;
-	color: #f2ebea;
-	text-align: left;
+  color: $antiquewhite;
+  font-family: $base-font-family;
+  font-size: $small-font;
+  font-weight: normal;
+  text-align: left;
 }
 
 .menu {
-	@include position(absolute, 0px 0px null null);
-	display: flex;
-    width: 100%;
-	flex-direction: column;
-	align-items: flex-end;
-    overflow: hidden;
-    background-color: transparent;
+  @include position(absolute, 0 0 null null);
+  align-items: flex-end;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
 
-	i {
-		transform: translateY(-150%);
-		color: #fff;
-		@include position(fixed, 15px 15px null null);
-		@include size(auto);
-		z-index: 10;
-		text-align: right;
-		padding: 7.55px 10px;
-		font-size: 1.75rem;
-		cursor: pointer;
-		transition: all 250ms ease-in-out;
-		animation: slideInDown .75s ease-in-out .5s 1 forwards;
+  i {
+    @include position(fixed, 15px 15px null null);
+    @include size(auto);
+    animation: slideInDown .75s ease-in-out .5s 1 forwards;
+    color: $white;
+    cursor: pointer;
+    font-size: 1.75rem;
+    padding: 7.55px 10px;
+    text-align: right;
+    transform: translateY(-150%);
+    transition: all 250ms ease-in-out;
+    z-index: 10;
 	}
 
-	&.open {
-		i {
-			right: 147px;
-		}
-	}
+  &.open {
+    i {
+      right: 147px;
+    }
 
-	&.open ul {
-		right: 0px;
+    ul {
+      right: 0;
+    }
+  }
 
-		li a i {
-			@include position(relative, null 0px null null);
-			color: #333;
-			font-weight: 500;
-		}
-	}
+  ul {
+    @include position(fixed, 0 -132px null null);
+    background-color: $white85;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+    padding: 17.5px 0;
+    transition: all 250ms ease-in-out;
+    z-index: 10;
 
-	ul {
-		@include position(fixed, 0px -132px null null);
-		min-height: 100vh;
-		z-index: 10;
-		display: flex;
-		flex-direction: column;
-		margin: 0;
-		padding: 17.5px 0px;
-		background-color: rgba(255,255,255,0.85);
-		transition: all 250ms ease-in-out;
+    li {
+      color: $darkgrey;
+      cursor: pointer;
+      padding: 10px 15px;
+      text-align: left;
+      transition: all 250ms ease-in-out;
 
-		li {
-			padding: 10px 15px;
-			color: #333;
-			text-align: left;
-			cursor: pointer;
-			transition: all 250ms ease-in-out;
-
-			&:last-child {
-				@include position(absolute, null null 40px 25%);
-				text-align: center;
+      &:last-child {
+        @include position(absolute, null null 40px 25%);
+        text-align: center;
 			}
 
-			a {
-				text-transform: uppercase;
-				font-family: $heading-font-family;
-				transition: all 150ms ease-in-out;
-				color: #333;
-				font-weight: 500;
-				font-size: 1.25rem;
+      i {
+        @include position(relative, null 0 null null);
+        color: $darkgrey;
+        font-weight: 500;
+      }
 
-                &:hover {
-                    opacity: 0.7;
-                }
+			a {
+        color: $darkgrey;
+        font-family: $heading-font-family;
+        font-size: 1.25rem;
+				font-weight: 500;
+				text-transform: uppercase;
+				transition: all 150ms ease-in-out;
+
+        &:hover {
+          opacity: .7;
+        }
 
 				&:visited {
-					color: #333;
+					color: $darkgrey;
 				}
 
 				i {
+          color: $darkgrey;
+          font-weight: 500;
 					position: relative;
-					right: 0px;
-					color: #333;
-					font-weight: 500;
+					right: 0;
 				}
 			}
 		}
@@ -174,35 +175,34 @@ ul {
 }
 
 .container {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 25px 25px;
-	transition: all 500ms ease-in-out;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+  position: relative;
+  transition: all 500ms ease-in-out;
 
-	&.header {
-		min-height: 100vh;
-		background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720') no-repeat center center;
-		background-size: cover;
-		background-attachment: fixed;
-		background-color: rgba(255,192,203,0.5);
-		text-align: center;
-		animation: headerImageRotateDT 21s ease-in-out 0.25s infinite;
-	}
+  &.header {
+    min-height: 100vh;
+    background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: $antiquewhite;
+    text-align: center;
+    animation: headerImageRotateDT 21s ease-in-out .25s infinite;
 
-	&.header > h1 {
-		//@include position(absolute, 50% null null null);
-		transform: translateX(-100%);
-		font-size: $large-font;
-		font-weight: 300;
-		width: 100%;
-		animation: slideInRight 1s ease-in-out 0.5s 1 forwards;
+    > h1 {
+      animation: slideInRight 1s ease-in-out .5s 1 forwards;
+      font-size: $large-font;
+      font-weight: 300;
+      transform: translateX(-100%);
+      width: 100%;
+  	}
 
-		a {
-			color: #fff;
-		}
+    a {
+      color: $white;
+    }
 	}
 
 	&.header .wrapper {

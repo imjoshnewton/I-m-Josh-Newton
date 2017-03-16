@@ -1,32 +1,35 @@
-require('es6-promise').polyfill();
+require('es6-promise').polyfill()
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var browserSync = require('browser-sync').create();
-var useref = require('gulp-useref');
-var uglify = require('gulp-uglify');
-var gulpIf = require('gulp-if');
+var gulp = require('gulp')
+var sass = require('gulp-sass')
+var autoprefixer = require('gulp-autoprefixer')
+var browserSync = require('browser-sync').create()
+var useref = require('gulp-useref')
+var uglify = require('gulp-uglify')
+var gulpIf = require('gulp-if')
 
-gulp.task('sass', function(){
-    return gulp.src('source/css/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Using gulp-sass
+gulp.task('sass', function () {
+  return gulp.src('source/css/*.scss')
+        .pipe(sass({
+          outputStyle: 'compressed'
+        }))
         .pipe(autoprefixer())
         .pipe(gulp.dest('build/css'))
         .pipe(browserSync.reload({
-            stream: false
+          stream: false
         }))
-});
+})
 
-gulp.task('sass-serve', function(){
-    return gulp.src('source/css/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Using gulp-sass
+gulp.task('sass-serve', function () {
+  return gulp.src('source/css/*.scss')
+        .pipe(sass({
+          outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest('build/css'))
-});
+})
 
-gulp.task('useref', function(){
+gulp.task('useref', function () {
   return gulp.src('source/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
