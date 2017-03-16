@@ -16,7 +16,7 @@ gulp.task('sass', function () {
         .pipe(autoprefixer())
         .pipe(gulp.dest('build/css'))
         .pipe(browserSync.reload({
-          stream: false
+          stream: true
         }))
 })
 
@@ -35,7 +35,7 @@ gulp.task('useref', function () {
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({
-      stream: false
+      stream: true
     }))
 })
 
