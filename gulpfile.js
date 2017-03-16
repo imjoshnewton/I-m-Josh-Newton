@@ -15,8 +15,15 @@ gulp.task('sass', function(){
         .pipe(autoprefixer())
         .pipe(gulp.dest('build/css'))
         .pipe(browserSync.reload({
-            stream: true
+            stream: false
         }))
+});
+
+gulp.task('sass-serve', function(){
+    return gulp.src('source/css/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Using gulp-sass
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('build/css'))
 });
 
 gulp.task('useref', function(){
@@ -25,8 +32,15 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({
-        stream: true
+        stream: false
     }))
+});
+
+gulp.task('useref-serve', function(){
+  return gulp.src('source/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulp.dest('build'))
 });
 
 gulp.task('browserSync', function() {
@@ -41,4 +55,10 @@ gulp.task('default', ['browserSync', 'sass', 'useref'], function() {
     gulp.watch('source/css/*.scss', ['sass']);
     gulp.watch('source/*.html', ['useref']);
     gulp.watch('source/js/**/*.js', browserSync.reload);
+});
+
+gulp.task('serve', ['sass-serve', 'useref-serve'], function() {
+    gulp.watch('source/css/*.scss', ['sass-serve']);
+    gulp.watch('source/*.html', ['useref-serve']);
+    gulp.watch('source/js/**/*.js', ['useref-serve']);
 });

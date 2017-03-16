@@ -104,7 +104,7 @@ ul {
 		font-size: 1.75rem;
 		cursor: pointer;
 		transition: all 250ms ease-in-out;
-		animation: slideInDown 0.75s ease-in-out 0.5s 1 forwards;
+		animation: slideInDown .75s ease-in-out .5s 1 forwards;
 	}
 
 	&.open {
