@@ -35,8 +35,5 @@ $(document).ready(function() {
 		$('.bg').css({
       'transform' : 'translateY(' + wScroll /2 +'px)'
     });
-    $('#name').css({
-      'transform' : 'translateY(' + wScroll /1.2 +'px)'
-    });
 	});
 });
