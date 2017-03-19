@@ -37,7 +37,8 @@ $grey60: rgba(20%, 20%, 20%, .6);
 $darkgrey70: rgba(5%, 5%, 5%, .7);
 $antiquewhite: #f2ebea;
 $darkgrey: #333;
-$grey-overlay: linear-gradient(rgba(21, 21, 21, .5), rgba(21, 21, 21, .5));
+$darkgrey-rgba: rgba(21, 21, 21, .5);
+$grey-overlay: linear-gradient($darkgrey-rgba, $darkgrey-rgba);
 
 // Gradient Stops
 
@@ -198,50 +199,55 @@ ul {
   transition: all 500ms ease-in-out;
 
   &.header {
-    min-height: 100vh;
+    //animation: headerImageRotateDT 21s ease-in-out .25s infinite;
     //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
+    //background-attachment: fixed;
     background-color: $antiquewhite;
+    //background-size: cover;
+    min-height: 100vh;
     text-align: center;
-    animation: headerImageRotateDT 21s ease-in-out .25s infinite;
     z-index: 0;
 
     .bg {
       @include position(absolute, 0 0 0 0);
+      //background-attachment: fixed;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       opacity: 0;
-      
+
       &:nth-child(1) {
         animation: headerImageRotateMB2 25s ease-in-out infinite;
         z-index: 5;
       }
+
       &:nth-child(2) {
         animation: headerImageRotateMB2 25s ease-in-out 5s infinite;
         z-index: 4;
       }
+
       &:nth-child(3) {
         animation: headerImageRotateMB2 25s ease-in-out 10s infinite;
         z-index: 3;
       }
+
       &:nth-child(4) {
         animation: headerImageRotateMB2 25s ease-in-out 15s infinite;
         z-index: 2;
       }
+
       &:nth-child(5) {
         animation: headerImageRotateMB2 25s ease-in-out 20s infinite;
         z-index: 1;
       }
     }
-    
+
     .overlay {
       @include position(absolute, 0 0 0 0);
       background: $grey-overlay;
       z-index: 6;
     }
-    
+
     > h1 {
       animation: slideInRight 1s ease-in-out .5s 1 forwards;
       font-size: $large-font;
@@ -626,10 +632,10 @@ ul {
 	}
 	.container {
 		&.header {
-			min-height: 95vh;
-			//background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/853x481') no-repeat center center;
-			background-size: cover;
-			//animation: headerImageRotateMB2 20s ease-in-out 0.25s infinite;
+      //animation: headerImageRotateMB2 20s ease-in-out 0.25s infinite;
+      //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/853x481') no-repeat center center;
+			//background-size: cover;
+      min-height: 98vh;
 
 			h1 {
 				margin-top: 0;
@@ -705,7 +711,9 @@ ul {
 			}
 		}
 	}
+}
 
+@media (max-width: 768px) {
 	.right-triangle {
 		background-attachment: scroll;
 	}

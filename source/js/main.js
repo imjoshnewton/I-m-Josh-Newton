@@ -32,8 +32,11 @@ $(document).ready(function() {
 	$(window).scroll(function() {
 		var wScroll = $(this).scrollTop();
 
-		$('#name').css({
-      		'margin-bottom' : wScroll /2 +'%)'
-    	});
+		$('.bg').css({
+      'transform' : 'translateY(' + wScroll /2 +'px)'
+    });
+    $('#name').css({
+      'transform' : 'translateY(' + wScroll /1.2 +'px)'
+    });
 	});
 });

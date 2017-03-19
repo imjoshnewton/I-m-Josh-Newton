@@ -7,6 +7,7 @@ var browserSync = require('browser-sync').create()
 var useref = require('gulp-useref')
 var uglify = require('gulp-uglify')
 var gulpIf = require('gulp-if')
+var gutil = require('gulp-util');
 
 gulp.task('sass', function () {
   return gulp.src('source/css/*.scss')
@@ -32,7 +33,7 @@ gulp.task('sass-serve', function () {
 gulp.task('useref', function () {
   return gulp.src('source/*.html')
     .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.js', uglify())).on('error', gutil.log)
     .pipe(gulp.dest('build'))
     .pipe(browserSync.reload({
       stream: true
@@ -57,7 +58,7 @@ gulp.task('browserSync', function () {
 gulp.task('default', ['browserSync', 'sass', 'useref'], function () {
   gulp.watch('source/css/*.scss', ['sass'])
   gulp.watch('source/*.html', ['useref'])
-  gulp.watch('source/js/**/*.js', browserSync.reload)
+  gulp.watch('source/js/**/*.js', ['useref'])
 })
 
 gulp.task('serve', ['sass-serve', 'useref-serve'], function () {
