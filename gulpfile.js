@@ -12,7 +12,7 @@ var gutil = require('gulp-util');
 gulp.task('sass', function () {
   return gulp.src('source/css/*.scss')
         .pipe(sass({
-          outputStyle: 'compressed'
+          outputStyle: 'nested'
         })).on('error', gutil.log)
         .pipe(autoprefixer()).on('error', gutil.log)
         .pipe(gulp.dest('build/css')).on('error', gutil.log)
