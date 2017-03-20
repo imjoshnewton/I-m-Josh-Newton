@@ -216,32 +216,37 @@ ul {
       opacity: 0;
 
       &:nth-child(1) {
-        animation: headerImageRotateMB2 25s ease-in-out infinite;
+        animation: headerImageRotate 25s ease-in-out infinite;
         background: $grey-overlay, url(https://source.unsplash.com/igmaRVtMhqg/1280x720) center center no-repeat;
+        background-size: cover;
         z-index: 5;
       }
 
       &:nth-child(2) {
-        animation: headerImageRotateMB2 25s ease-in-out 5s infinite;
+        animation: headerImageRotate 25s ease-in-out 5s infinite;
         background: $grey-overlay, url(https://source.unsplash.com/5D9SyUI3wHU/1280x720) center center no-repeat;
+        background-size: cover;
         z-index: 4;
       }
 
       &:nth-child(3) {
-        animation: headerImageRotateMB2 25s ease-in-out 10s infinite;
+        animation: headerImageRotate 25s ease-in-out 10s infinite;
         background: $grey-overlay, url(https://source.unsplash.com/IZTnVWWbd4U/1280x720) center center no-repeat;
+        background-size: cover;
         z-index: 3;
       }
 
       &:nth-child(4) {
-        animation: headerImageRotateMB2 25s ease-in-out 15s infinite;
+        animation: headerImageRotate 25s ease-in-out 15s infinite;
         background: $grey-overlay, url(https://source.unsplash.com/gb7n4cNSmKY/1280x720) center center no-repeat;
+        background-size: cover;
         z-index: 2;
       }
 
       &:nth-child(5) {
-        animation: headerImageRotateMB2 25s ease-in-out 20s infinite;
+        animation: headerImageRotate 25s ease-in-out 20s infinite;
         background: $grey-overlay, url(https://source.unsplash.com/6gTxjDrGCVI/1280x720) center center no-repeat;
+        background-size: cover;
         z-index: 1;
       }
     }
@@ -613,7 +618,7 @@ ul {
 	}
 }
 
-@keyframes headerImageRotateMB2 {
+@keyframes headerImageRotate {
 	0%, 30%, 100% {
     opacity: 0;
 	}
@@ -637,7 +642,7 @@ ul {
 	}
 	.container {
 		&.header {
-      //animation: headerImageRotateMB2 20s ease-in-out 0.25s infinite;
+      //animation: headerImageRotate 20s ease-in-out 0.25s infinite;
       //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/853x481') no-repeat center center;
 			//background-size: cover;
       min-height: 98vh;
