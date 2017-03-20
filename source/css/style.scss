@@ -200,7 +200,7 @@ ul {
 
   &.header {
     //animation: headerImageRotateDT 21s ease-in-out .25s infinite;
-    //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720') no-repeat center center;
+    //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720')  center center;
     //background-attachment: fixed;
     background-color: $antiquewhite;
     //background-size: cover;
@@ -210,43 +210,40 @@ ul {
 
     .bg {
       @include position(absolute, 0 0 0 0);
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
       opacity: 0;
       transition: transform 0s linear;
 
       &:nth-child(1) {
         animation: headerImageRotate 25s ease-in-out infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/igmaRVtMhqg/1280x720) center center no-repeat;
+        background: $grey-overlay, url(https://source.unsplash.com/igmaRVtMhqg/853x480) center center fixed no-repeat;
         background-size: cover;
         z-index: 5;
       }
 
       &:nth-child(2) {
         animation: headerImageRotate 25s ease-in-out 5s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/5D9SyUI3wHU/1280x720) center center no-repeat;
+        background: $grey-overlay, url(https://source.unsplash.com/5D9SyUI3wHU/853x480) center center fixed no-repeat;
         background-size: cover;
         z-index: 4;
       }
 
       &:nth-child(3) {
         animation: headerImageRotate 25s ease-in-out 10s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/IZTnVWWbd4U/1280x720) center center no-repeat;
+        background: $grey-overlay, url(https://source.unsplash.com/IZTnVWWbd4U/853x480) center center fixed no-repeat;
         background-size: cover;
         z-index: 3;
       }
 
       &:nth-child(4) {
         animation: headerImageRotate 25s ease-in-out 15s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/gb7n4cNSmKY/1280x720) center center no-repeat;
+        background: $grey-overlay, url(https://source.unsplash.com/gb7n4cNSmKY/853x480) center center fixed no-repeat;
         background-size: cover;
         z-index: 2;
       }
 
       &:nth-child(5) {
         animation: headerImageRotate 25s ease-in-out 20s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/6gTxjDrGCVI/1280x720) center center no-repeat;
+        background: $grey-overlay, url(https://source.unsplash.com/6gTxjDrGCVI/853x480) center center fixed no-repeat;
         background-size: cover;
         z-index: 1;
       }
@@ -641,12 +638,13 @@ ul {
 			}
 		}
 	}
-	.container {
+  .container {
 		&.header {
-      //animation: headerImageRotate 20s ease-in-out 0.25s infinite;
-      //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/853x481') no-repeat center center;
-			//background-size: cover;
       min-height: 98vh;
+      .bg {
+        background-attachment: scroll !important;
+
+      }
 
 			h1 {
 				margin-top: 0;
