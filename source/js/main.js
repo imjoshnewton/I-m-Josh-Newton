@@ -29,12 +29,18 @@ $(document).ready(function() {
 		}
 	});
 
-  if(!!('ontouchstart' in window) && jQuery('.bg').css('background-attachment') === "scroll"){
+  var touchStart = ('ontouchstart' in window),
+      notFixed = $('.bg').css('background-attachment') === "scroll, scroll",
+      mobileTouch = touchStart && notFixed;
+
+  if(mobileTouch){
     $(window).scroll(function() {
       var wScroll = $(this).scrollTop();
 
+      window.console.log(wScroll);
+
       $('.bg').css({
-        backgroundPosition : 'center ' + wScroll /1 + 'px'
+        backgroundPosition : 'center ' + wScroll /2 + 'px'
       });
     });
 	}

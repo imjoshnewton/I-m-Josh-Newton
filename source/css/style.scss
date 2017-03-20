@@ -198,101 +198,6 @@ ul {
   position: relative;
   transition: all 500ms ease-in-out;
 
-  &.header {
-    //animation: headerImageRotateDT 21s ease-in-out .25s infinite;
-    //background: linear-gradient(rgba(21,21,21,0.5), rgba(21,21,21,0.5)), url('https://source.unsplash.com/igmaRVtMhqg/1280x720')  center center;
-    //background-attachment: fixed;
-    background-color: $antiquewhite;
-    //background-size: cover;
-    min-height: 100vh;
-    text-align: center;
-    z-index: 0;
-
-    .bg {
-      @include position(absolute, 0 0 0 0);
-      opacity: 0;
-      transition: transform 0s linear;
-
-      &:nth-child(1) {
-        animation: headerImageRotate 25s ease-in-out infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/igmaRVtMhqg/853x480) center center fixed no-repeat;
-        background-size: cover;
-        z-index: 5;
-      }
-
-      &:nth-child(2) {
-        animation: headerImageRotate 25s ease-in-out 5s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/5D9SyUI3wHU/853x480) center center fixed no-repeat;
-        background-size: cover;
-        z-index: 4;
-      }
-
-      &:nth-child(3) {
-        animation: headerImageRotate 25s ease-in-out 10s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/IZTnVWWbd4U/853x480) center center fixed no-repeat;
-        background-size: cover;
-        z-index: 3;
-      }
-
-      &:nth-child(4) {
-        animation: headerImageRotate 25s ease-in-out 15s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/gb7n4cNSmKY/853x480) center center fixed no-repeat;
-        background-size: cover;
-        z-index: 2;
-      }
-
-      &:nth-child(5) {
-        animation: headerImageRotate 25s ease-in-out 20s infinite;
-        background: $grey-overlay, url(https://source.unsplash.com/6gTxjDrGCVI/853x480) center center fixed no-repeat;
-        background-size: cover;
-        z-index: 1;
-      }
-    }
-
-    .overlay {
-      @include position(absolute, 0 0 0 0);
-      background: $grey-overlay;
-      display: none;
-      z-index: 6;
-    }
-
-    > h1 {
-      animation: slideInRight 1s ease-in-out .5s 1 forwards;
-      font-size: $large-font;
-      font-weight: 300;
-      transform: translateX(-100%);
-      width: 100%;
-      z-index: 7;
-  	}
-
-    a {
-      color: $white;
-    }
-  }
-
-	&.header .wrapper {
-		transform: translateX(-100%);
-		animation: slideInRight 1.75s ease-in-out 0.5s 1 forwards;
-    z-index: 7;
-	}
-
-	&.header .icon-wrapper {
-		display: none;
-		margin: 0px;
-		flex-direction: row;
-		animation: slideInRight 0.75s ease-in-out 0.5s 1 forwards;
-    z-index: 7;
-
-		i {
-			font-size: 2rem;
-			margin-left: 2.25rem;
-
-			&:first-of-type {
-				margin-left: 0px;
-			}
-		}
-	}
-
 	&.body {
 		justify-content: center;
 		background: #333;
@@ -360,33 +265,106 @@ ul {
 	}
 }
 
+.header {
+  background-color: $antiquewhite;
+  min-height: 100vh;
+  text-align: center;
+  z-index: 0;
+
+  .bg {
+    @include position(absolute, 0 0 0 0);
+    opacity: 0;
+    transition: transform 1ms linear;
+
+    &:nth-child(1) {
+      animation: headerImageRotate 25s ease-in-out infinite;
+      background: $grey-overlay, url(https://source.unsplash.com/igmaRVtMhqg/853x480) center center fixed no-repeat;
+      background-size: cover;
+      z-index: 5;
+    }
+
+    &:nth-child(2) {
+      animation: headerImageRotate 25s ease-in-out 5s infinite;
+      background: $grey-overlay, url(https://source.unsplash.com/5D9SyUI3wHU/853x480) center center fixed no-repeat;
+      background-size: cover;
+      z-index: 4;
+    }
+
+    &:nth-child(3) {
+      animation: headerImageRotate 25s ease-in-out 10s infinite;
+      background: $grey-overlay, url(https://source.unsplash.com/IZTnVWWbd4U/853x480) center center fixed no-repeat;
+      background-size: cover;
+      z-index: 3;
+    }
+
+    &:nth-child(4) {
+      animation: headerImageRotate 25s ease-in-out 15s infinite;
+      background: $grey-overlay, url(https://source.unsplash.com/gb7n4cNSmKY/853x480) center center fixed no-repeat;
+      background-size: cover;
+      z-index: 2;
+    }
+
+    &:nth-child(5) {
+      animation: headerImageRotate 25s ease-in-out 20s infinite;
+      background: $grey-overlay, url(https://source.unsplash.com/6gTxjDrGCVI/853x480) center center fixed no-repeat;
+      background-size: cover;
+      z-index: 1;
+    }
+  }
+
+  .overlay {
+    @include position(absolute, 0 0 0 0);
+    background: $grey-overlay;
+    display: none;
+    z-index: 6;
+  }
+
+  .wrapper {
+    animation: slideInRight 1.75s ease-in-out .5s 1 forwards;
+    transform: translateX(-100%);
+    z-index: 7;
+  }
+
+  > h1 {
+    animation: slideInRight 1s ease-in-out .5s 1 forwards;
+    font-size: $large-font;
+    font-weight: 300;
+    transform: translateX(-100%);
+    width: 100%;
+    z-index: 7;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
 .wrapper {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	//align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }
 
 .button {
-	text-align: center;
-	padding: 15px 30px;
+  padding: 15px 30px;
+  text-align: center;
 
-	a {
-		width: 10%;
-		color: $antiquewhite;
-		text-decoration: none;
-		text-transform: uppercase;
-		font-weight: bold;
-		line-height: $medium-icons;
-		padding: 15px 30px;
+  a {
+    color: $antiquewhite;
+    font-weight: bold;
+    line-height: $medium-icons;
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 10%;
 
-		i {
-			font-size: 1.5rem;
-			transform: translateY(-10px);
-			animation: upAndDown 750ms ease-in-out 2.5s infinite alternate;
-		}
-	}
+    i {
+      animation: upAndDown 750ms ease-in-out 2.5s infinite alternate;
+      font-size: 1.5rem;
+      transform: translateY(-10px);
+    }
+  }
 }
 
 #more {
