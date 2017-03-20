@@ -55,7 +55,7 @@ gulp.task('browserSync', function () {
   })
 })
 
-gulp.task('default', ['browserSync', 'sass', 'useref'], function () {
+gulp.task('default', ['sass', 'useref', 'browserSync'], function () {
   gulp.watch('source/css/*.scss', ['sass'])
   gulp.watch('source/*.html', ['useref'])
   gulp.watch('source/js/**/*.js', ['useref'])
