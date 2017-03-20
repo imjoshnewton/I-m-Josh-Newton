@@ -13,21 +13,12 @@ gulp.task('sass', function () {
   return gulp.src('source/css/*.scss')
         .pipe(sass({
           outputStyle: 'compressed'
-        }))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('build/css'))
+        })).on('error', gutil.log)
+        .pipe(autoprefixer()).on('error', gutil.log)
+        .pipe(gulp.dest('build/css')).on('error', gutil.log)
         .pipe(browserSync.reload({
           stream: true
         }))
-})
-
-gulp.task('sass-serve', function () {
-  return gulp.src('source/css/*.scss')
-        .pipe(sass({
-          outputStyle: 'compressed'
-        }))
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('build/css'))
 })
 
 gulp.task('useref', function () {
@@ -40,13 +31,6 @@ gulp.task('useref', function () {
     }))
 })
 
-gulp.task('useref-serve', function () {
-  return gulp.src('source/*.html')
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulp.dest('build'))
-})
-
 gulp.task('browserSync', function () {
   browserSync.init({
     server: {
@@ -56,13 +40,7 @@ gulp.task('browserSync', function () {
 })
 
 gulp.task('default', ['sass', 'useref', 'browserSync'], function () {
-  gulp.watch('source/css/*.scss', ['sass'])
+  gulp.watch('source/css/**/*.scss', ['sass'])
   gulp.watch('source/*.html', ['useref'])
   gulp.watch('source/js/**/*.js', ['useref'])
-})
-
-gulp.task('serve', ['sass-serve', 'useref-serve'], function () {
-  gulp.watch('source/css/*.scss', ['sass-serve'])
-  gulp.watch('source/*.html', ['useref-serve'])
-  gulp.watch('source/js/**/*.js', ['useref-serve'])
 })

@@ -33,7 +33,7 @@ $(document).ready(function() {
 		var wScroll = $(this).scrollTop();
 
 		$('.bg').css({
-      'transform' : 'translateY(' + wScroll /2 +'px)'
+      'transform' : 'translateY(' + wScroll /2.1 + 'px)'
     });
 	});
 });
