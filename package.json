@@ -1,5 +1,5 @@
 {
-  "name": "imjoshnewton",
+  "name": "imjoshnewton.me",
   "version": "1.0.0",
   "description": "My personal site",
   "main": "index.js",
@@ -21,5 +21,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Newton",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newtonjd1/I-m-Josh-Newton"
+  }
 }
