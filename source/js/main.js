@@ -6,6 +6,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+new WOW().init();
+
 $(document).ready(function() {
 	$("#menu").children("i").click(function() {
 		$(this).toggleClass("fa-bars").toggleClass("fa-times").closest("#menu").toggleClass("open");
