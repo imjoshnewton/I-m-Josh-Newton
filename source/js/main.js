@@ -38,13 +38,17 @@ $(document).ready(function() {
   if(mobileTouch){
     $(window).scroll(function() {
       var wScroll = $(this).scrollTop();
-
-      window.console.log(wScroll);
-
-      $('.bg').css({
-        backgroundPosition : 'center ' + wScroll /2 + 'px'
-      });
+      parallax(wScroll);
     });
 	}
 	else{}
+
+  function parallax (amntArg) {
+    var scrollAmnt = Math.floor(amntArg) || 0
+    window.requestAnimationFrame(function () {
+      $('.bg').css({
+        'transform' : 'translateY(' + -scrollAmnt /2 + 'px)'
+      });
+    });
+  }
 });
