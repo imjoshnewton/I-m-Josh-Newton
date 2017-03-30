@@ -211,10 +211,12 @@ ul {
 		border-top: 2px solid #eee;
 
 		h1 {
+      animation-delay: .5s;
 			width: auto;
 		}
 
 		.wrapper {
+      animation-delay: .5s;
 			flex-wrap: wrap;
 			justify-content: flex-start;
 
@@ -237,11 +239,13 @@ ul {
 		background: $darkgrey;
 
 		h1 {
+      animation-delay: .5s;
 			width: 100%;
 			opacity: 0.9;
 		}
 
 		.wrapper {
+      animation-delay: .5s;
 			text-align: right;
 			flex-direction: row;
 			justify-content: flex-end;
