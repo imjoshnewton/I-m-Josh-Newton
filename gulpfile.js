@@ -13,6 +13,7 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
+var imagemin = require('gulp-imagemin');
 //var livereload = require('gulp-livereload');
 
 gulp.task('sass', function () {
@@ -41,7 +42,13 @@ gulp.task('useref', ['sass'], function () {
     }))
 })
 
-gulp.task('browserSync', ['sass', 'useref'], function () {
+gulp.task('images', ['sass', 'useref'], function(){
+  return gulp.src('source/img/**/*.+(png|jpg|gif|svg)')
+  .pipe(imagemin())
+  .pipe(gulp.dest('build/img'))
+})
+
+gulp.task('browserSync', ['sass', 'useref', 'images'], function () {
   browserSync.init({
     server: {
       baseDir: 'build'
@@ -50,15 +57,16 @@ gulp.task('browserSync', ['sass', 'useref'], function () {
   })
 })
 
-gulp.task('default', ['sass', 'useref', 'browserSync'], function () {
-  gulp.watch('source/scss/**/*.scss', ['sass', 'useref'])
-  gulp.watch('source/*.html', ['useref'])
-  gulp.watch('source/js/**/*.js', ['useref'])
+gulp.task('default', ['sass', 'useref', 'images', 'browserSync'], function () {
+  gulp.watch('source/scss/**/*.scss', ['sass', 'useref']);
+  gulp.watch('source/*.html', ['useref']);
+  gulp.watch('source/js/**/*.js', ['useref']);
+  gulp.watch('source/img/**/*.+(png|jpg|gif|svg)', ['images']);
 })
 
 gulp.task('server', ['sass', 'useref'], function () {
 	//livereload.listen()
-	gulp.watch('source/scss/**/*.scss', ['sass', 'useref'])
-	gulp.watch('source/*.html', ['useref'])
-	gulp.watch('source/js/**/*.js', ['useref'])
+	gulp.watch('source/scss/**/*.scss', ['sass', 'useref']);
+	gulp.watch('source/*.html', ['useref']);
+	gulp.watch('source/js/**/*.js', ['useref']);
 })
