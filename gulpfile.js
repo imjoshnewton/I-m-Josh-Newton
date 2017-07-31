@@ -14,16 +14,13 @@ var gulpIf = require('gulp-if');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
-//var livereload = require('gulp-livereload');
 
 gulp.task('sass', function () {
   return gulp.src('source/scss/*.scss')
-        .pipe(sourcemaps.init())
         .pipe(sass({
           outputStyle: 'compressed'
         })).on('error', gutil.log)
         .pipe(autoprefixer()).on('error', gutil.log)
-        .pipe(sourcemaps.write())
         .pipe(gulp.dest('source/css')).on('error', gutil.log)
         .pipe(browserSync.reload({
           stream: true
@@ -33,9 +30,7 @@ gulp.task('sass', function () {
 gulp.task('useref', ['sass'], function () {
   return gulp.src('source/*.html')
     .pipe(useref())
-    .pipe(sourcemaps.init())
     .pipe(gulpIf('*.js', uglify())).on('error', gutil.log)
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest('build')).on('error', gutil.log)
     .pipe(browserSync.reload({
       stream: true
@@ -65,7 +60,6 @@ gulp.task('default', ['sass', 'useref', 'images', 'browserSync'], function () {
 })
 
 gulp.task('server', ['sass', 'useref'], function () {
-	//livereload.listen()
 	gulp.watch('source/scss/**/*.scss', ['sass', 'useref']);
 	gulp.watch('source/*.html', ['useref']);
 	gulp.watch('source/js/**/*.js', ['useref']);
